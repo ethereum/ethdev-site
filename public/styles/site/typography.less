@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: @font-family-global;
+  font-size: @font-size-base;
+  line-height: @font-line-height-base;
+  transition: font-size .6s ease-in-out;
+  color: @gray-dark;
+}
+
+a {
+  &, &:link, &:visited, &:hover {
+    color: @blue-light;
+    text-decoration:none;
+  }
+}
+
+h1, h2, h3, h4, h5, h6, b, strong {
+  font-weight:normal;
+  font-family: @proxima;
+}
+
+i, em {
+  font-style:normal;
+  font-family: @proxima-light-italic;
+}
+
+h1 {
+  font-size: @font-size-base * 1.875;
+  font-family: @font-family-global;
+}
+
+h2 {
+  font-size: @font-size-base * 1.7;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 6pt;
+  line-height: 1.3em;
+}
+
+@media all and (min-width: @media-desktop) {
+  body {
+    font-size: @font-size-base * @font-size-ratio-desktop;
+  }
+}

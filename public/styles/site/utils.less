@@ -1,0 +1,46 @@
+@footer-height: 78px;
+
+.section-footer {
+  overflow: hidden;
+  position: relative;
+  bottom: @footer-height * -0.5;
+  cursor: pointer;
+
+  .tab {
+    .ir();
+    width: @footer-height;
+    height: @footer-height;
+    margin-top: @footer-height * -0.5;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    background-image: url('/images/arrow-down.png');
+    background-repeat: no-repeat;
+    background-position: 50% 65%;
+    background-size: 40%;
+    border-radius: 0 0 50% 50%;
+
+    &.inverted {
+      background-image: url('/images/arrow-down-inverted.png');
+    }
+  }
+
+  @media all and (min-width: @media-desktop) {
+    /*bottom: (@footer-height * -1) - 28px;*/
+  }
+}
+
+.lead {
+  width: 100%;
+  margin:auto;
+  text-align: center;
+  padding: 0 10%;
+  margin-bottom: 14%;
+
+  @media all and (min-width: @media-desktop) {
+    width: 75%;
+    padding-left:12.5pt;
+    padding-right:12.5pt;
+    margin-bottom: 3em;
+  }
+}

@@ -1,0 +1,53 @@
+section#contact: .container
+  h2 Contact Us
+
+  .row
+    form(method='post', action="/ajax/contact").form
+      input(type='hidden', name='action', value='contact')
+      .form-group
+        label.form-label Name
+        input(type='text', name='name.full', placeholder='NAME', required).form-control
+      .form-group
+        label.form-label Email
+        input(type='email', name='email', placeholder='E-MAIL', required).form-control
+      if enquiryTypes
+        .form-group
+          select(name='enquiryType', required).form-control
+            option(value='') What are you contacting us about?
+            each type in enquiryTypes
+              option(value=type.value, selected=formData.enquiryType == type.value)= type.label
+      .form-group
+        label.form-label Message
+        textarea(name='message', placeholder='MESSAGE', rows=6, required).form-control
+      .form-group.form-actions
+        button(type='submit').btn.btn-primary.btn-right Send
+
+    .map
+      img.map-background(src='/images/contact-mapbg.png')
+
+  .row
+    ul.team-locations
+      each location in teamLocations
+        li
+          div.location
+            h3= location.title
+            .address
+              if location.coordinates.number
+                | !{location.coordinates.number + " " }
+              if location.coordinates.name
+                | !{location.coordinates.name + "<br>" }
+              if location.coordinates.street1
+                | !{location.coordinates.street1 + "<br>" }
+              if location.coordinates.street2
+                | !{location.coordinates.street2 + "<br>" }
+              if location.coordinates.suburb
+                | !{location.coordinates.suburb + "<br>" }
+              if location.coordinates.state
+                | !{location.coordinates.state + " " }
+              if location.coordinates.postcode
+                | !{location.coordinates.postcode + "<br>" }
+              if location.coordinates.country
+                | !{location.coordinates.country}
+            a.telephone(href="tel:location.telephone")= location.telephone
+            a.email(href="mailto:location.email")= location.email
+

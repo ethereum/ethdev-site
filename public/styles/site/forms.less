@@ -1,0 +1,62 @@
+.form {
+  width: 100%;
+  padding-left: @mobile-padding;
+  padding-right: @mobile-padding;
+
+  &, .form-group {
+    .clearfix();
+  }
+
+  .form-group {
+    display: block;
+    clear: both;
+
+    .form-label {
+      .ir();
+      display: block;
+      height: 0;
+    }
+
+    .form-control {
+      width: 100%;
+      font-size: 14pt;
+      background-color: @gray-dark;
+      padding: .5em;
+      border: 0;
+      outline: none;
+      color: @gray-lighter;
+      display: block;
+    }
+
+    margin-bottom: @mobile-padding;
+  }
+}
+
+a.btn, button.btn {
+  font-size: 14pt!important;
+  padding: .25em;
+  width: 100%;
+  margin-right: 2.5%;
+  display: block;
+  float: left;
+  color: white;
+  background-color: @gray-light;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  border: 0;
+
+  & + &, &.btn-right {
+    float: right;
+    margin-right: 0;
+    margin-left: 2.5%;
+  }
+
+  &.btn-primary {
+    background-color: @blue-light;
+  }
+
+  @media all and (min-width: @media-desktop) {
+    width: 47.5%;
+  }
+}

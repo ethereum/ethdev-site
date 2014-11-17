@@ -1,0 +1,81 @@
+include ../mixins/flash-messages
+include ../mixins/section_footer
+
+doctype html
+html
+
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, max-width=device-width")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+
+    title= title || 'DEV'
+    link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+    link(href="/styles/fonts.css", rel="stylesheet")
+    link(href="/styles/site.min.css", rel="stylesheet")
+
+    if user && user.canAccessKeystone
+      link(href="/keystone/styles/content/editor.min.css", rel="stylesheet")
+
+    block css
+
+    block head
+
+  body(id=currentSectionId)
+
+    header.fixed-header
+      nav(role="navigation").navbar
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.sr-only Toggle navigation
+
+        .container.navgroup-container
+          .scroller
+            a.navbar-logo(href="#opener")
+            ul.navgroup.navbar-nav.navbar-left
+              each link in navLinks
+                li: a(class="#{link.key}", href=link.href)= link.label
+            ul.navgroup.navbar-nav.navbar-right
+              if user
+                if user.canAccessKeystone
+                  li: a(href='/keystone') Open Keystone
+                li: a(href='/keystone/signout') Sign Out
+
+
+    .page-content
+
+      //- The Intro block appears above flash messages (used for temporary information display)
+      block intro
+        
+      +flash-messages(messages)
+
+      //- The content block should contain the body of your template's content
+      block content
+
+      footer: .container
+        block footer
+
+
+    //-[if lt IE 9]
+      script(src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js")
+      script(src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js")
+    //-[endif]
+    script(src='/js/lib/jquery/jquery-2.1.1.min.js')
+    script(src='/js/lib/isotope.pkgd.min.js')
+    script(src='/js/lib/masonry-horizontal.min.js')
+    script(src='/js/lib/jquery.magnific-popup.min.js')
+    script(src='/js/lib/packery-mode.pkgd.min.js')
+    //- The KeystoneJS Content Editor provides support for ks-editable data attributes,
+    //- which generate links to edit content for users who can access Keystone
+    if user && user.canAccessKeystone
+      script(src='/keystone/js/content/editor.js')
+
+    script(src='/js/site.js')
+    script.
+      // Load the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/player_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    block js

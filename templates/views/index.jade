@@ -1,0 +1,29 @@
+extends ../layouts/default
+
+block content
+  include ./site/opener
+  - with(missionSection)
+    include ./site/mission
+
+  - with(mediaSection)
+    include ./site/media
+
+    include ./site/team
+
+  - with(jobsSection)
+    include ./site/jobs
+
+  - with(contactSection)
+    include ./site/contact
+
+block footer
+  a.footer-link.facebook(href="https://www.facebook.com/ethereumproject") Facebook
+  a.footer-link.twitter(href="https://twitter.com/ethereumproject") Twitter
+  a.footer-link.youtube(href="https://www.youtube.com/user/ethereumproject") Youtube
+  a.footer-link.reddit(href="http://www.reddit.com/r/ethereum/") Reddit
+  a.footer-link.forum(href="https://forum.ethereum.org/") Forum
+  a.footer-link.irc(href="https://webchat.freenode.net/?channels=%23ethereum") Chat
+  a.footer-link.linkedin(href="https://www.linkedin.com/company/5091692") Linkedin
+  a.footer-link.github(href="https://github.com/ethereum") Github
+
+  p.copyright Copyright 2014 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a justo vel metus sollicitudin lobortis.

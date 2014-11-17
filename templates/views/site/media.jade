@@ -1,0 +1,51 @@
+section#media
+  .container
+    h2 Media
+
+    .mediawall
+      .media-container
+        each mediaItem in mediaSectionGalleryVideos
+          a(class='media-item large video', 
+              href="https://www.youtube.com/watch?v=#{mediaItem.videoId}",
+              data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"),
+              target="_blank")
+            - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(800, 800) : ''
+            img.background(src=imageUrl)
+            .info
+              h3.title= mediaItem.title
+              if mediaItem.description
+                p.description= mediaItem.description
+            .play Play
+
+        each mediaItem in mediaSectionGalleryLinks
+          a(class='media-item link', 
+              href=mediaItem.url, target="_blank",
+              data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"))
+            - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(400, 400) : ''
+            img.background(src=imageUrl)
+            .info
+              h3.title= mediaItem.title
+              if mediaItem.description
+                p.description= mediaItem.description
+
+        each mediaItem in mediaSectionGalleryFiles
+          if mediaItem.file
+            div(class='media-item file', 
+              data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"))
+              - var iconUrl = mediaItem.icon ? mediaItem._.icon.thumbnail(200, 200) : '';
+              img.background(src=iconUrl)
+              .info
+                h3.title= mediaItem.title
+                if mediaItem.description
+                  p.description= mediaItem.description
+                a.btn.btn-primary(href="/files/#{mediaItem.file.filename}",
+                                  target="_blank") Download
+      .grid-size
+      .gutter-size
+
+  .medianav
+    button.left Left
+    button.right Right
+
+  +section_footer()
+

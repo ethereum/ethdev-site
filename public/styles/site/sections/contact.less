@@ -1,0 +1,91 @@
+#contact {
+  .clearfix();
+  background-color: @gray-lighter;
+  border-bottom: 0;
+
+  .map {
+    display: none;
+  }
+
+  .team-locations {
+    padding:2em 0 3em;
+
+    li {
+      list-style: none;
+      margin: 0em 1em 1em 1em;
+
+      .location {
+        background: white;
+        padding: 1em 2em;
+        display: block;
+        width: 100%;
+
+        > * {
+          margin-bottom: .5em;
+          display: block;
+        }
+
+        .title {
+          margin-bottom: 1em;
+        }
+
+        .telephone, .email {
+          display: block;
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: @media-desktop) {
+    .container {
+      padding-bottom: 0;
+    }
+
+    .form {
+      width: 33%;
+      float: left;
+    }
+
+    .map {
+      width: 647px;
+      float: left;
+      display: block;
+      clear: none;
+      margin-left: 1em;
+      position: relative;
+
+      .pin {
+        position: absolute;
+        background-image: url('/images/contact-mappin.png');
+        width: 42px;
+        height: 63px;
+        margin-left: 30%;
+        margin-top: 20%;
+      }
+
+      .map-background {
+        width: 100%;
+      }
+    }
+
+    .team-locations {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+
+      li {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        width: 33.3%;
+        margin: 0;
+        padding: 1em;
+      }
+    }
+  }
+}
+

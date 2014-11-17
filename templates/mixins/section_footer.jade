@@ -1,0 +1,9 @@
+mixin section_footer(color, inverse)
+  - var inverse = inverse || false;
+  .section-footer
+    if(color)
+      div(class="tab sr-only #{inverse ? 'inverted' : ''}", style="background-color:#{color}")
+    else
+      .tab.sr-only
+        Next section
+

@@ -1,0 +1,26 @@
+section#team
+  .container
+    h2 Team
+
+    .lead-profile.hidden
+      - var dummyProfile = { photo:{path:'', filename:''}, firstname:'', lastname:'', biography:{md:'', html:''} }
+      +team_profile(dummyProfile)
+
+    .team-profiles
+      each profile, index in teamSectionProfiles
+        +team_profile(profile, index)
+
+  +section_footer("#f0f0f0")
+
+mixin team_profile(profile, index)
+  - var largeClass = index < 3 ? "large" : ""
+  div(class="profile #{largeClass}")
+    .photo
+      //-- var photoUrl = profile.photo.path + "/" + profile.photo.filename;
+      //-- photoUrl = photoUrl.replace('public/', '')
+      img(src=profile.photo.url)
+    h3.name 
+      .firstname #{profile.firstname} 
+      .lastname #{profile.lastname}
+    if profile.biography
+      .bio-copy!= profile.biography.html

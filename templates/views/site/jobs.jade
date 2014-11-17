@@ -1,0 +1,24 @@
+section#jobs
+  .container
+    h2 Job Offers
+
+    ul.job-offers
+      each job, index in jobsSectionList
+        +job_offer(job, index)
+
+  +section_footer("#4d4d4d", true)
+
+mixin job_offer(job, index)
+  - var skills = job.skills ? job.skills.split('|') : [];
+  - var alternate = index % 2 ? "alternate" : "";
+  li(class="job-offer #{alternate}")
+    h3.title= job.title
+    .date= job._.editedDate.format('MMM YYYY')
+    .description
+      | !{job.description.html}
+      if skills
+        ul
+          each skill in skills
+            li= skill
+      button.btn.btn-primary.apply Apply for role
+

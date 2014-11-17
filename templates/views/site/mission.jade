@@ -1,0 +1,26 @@
+section#mission
+  .container
+    h2!= missionSectionMain[0].title
+    .lead!= missionSectionMain[0].description.html
+
+    +mission_objectives(missionSectionObjectives)
+
+  +section_footer("#f0f0f0")
+
+mixin mission_objectives(objectives)
+  ol.mission-steps
+    each objective, index in objectives
+      +mission_objective(objective, index)
+      - if(index === 3) return;
+
+mixin mission_objective(o, i)
+  li.step
+    h3= o.title
+    if missionSection.images[i]
+      .video-container
+        video(autoplay, poster="/images/transparent.png", style="background-image:url('/images/#{missionSection.images[i]}.png')")
+          source(src="/videos/#{missionSection.images[i]}.ogv", type="video/ogg")
+          source(src="/videos/#{missionSection.images[i]}.mp4", type="video/mp4")
+          source(src="/videos/#{missionSection.images[i]}.webm", type="video/webm")
+    div.info!= o.description.html
+

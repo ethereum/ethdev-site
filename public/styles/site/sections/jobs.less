@@ -1,0 +1,165 @@
+.dark-fade(angle) {
+  background-image: linear-gradient(angle, @gray-dark 0%, fade(@gray-dark, 0%));
+}
+
+
+#jobs {
+  background-color: @gray-dark;
+  color: @gray-lighter;
+
+  padding-left: @mobile-padding;
+  padding-right: @mobile-padding;
+
+  .job-offers {
+    .clearfix();
+    position: relative;
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    padding-left: 1em;
+    border-left: 1px solid white;
+
+    &:before, &:after {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 2em;
+      left: -1px;
+      content: " ";
+      background-size: 100%;
+    }
+
+    &:before {
+      top: 0;
+      background-image: linear-gradient(180deg, @gray-dark 0%, fade(@gray-dark, 0%));
+    }
+
+    &:after {
+      bottom: 0;
+      background-image: linear-gradient(0deg, @gray-dark 0%, fade(@gray-dark, 0%));
+    }
+
+    .job-offer {
+      position: relative;
+      margin-bottom: 1em;
+
+      &:before {
+        position: absolute;
+        top: .25em;
+        left: -0.95em;
+        content: " ";
+        display: block;
+        width: .5em;
+        height: .5em;
+        background-color: @blue-light;
+        border: 3px solid @gray-dark;
+        border-radius: 50%;
+        margin-left: -.5em;
+      }
+
+      &:after {
+        content: " ";
+        display: block;
+        width: 100%;
+        height: 2em;
+        position: relative;
+        left: -1px;
+        background-image: linear-gradient(0deg, @gray-dark 0%, fade(@gray-dark, 0%));
+      }
+
+      .title {
+        color: @blue-light;
+        text-transform: uppercase;
+        padding-right: 1.5em;
+        padding-top:11px;
+
+        &:after {
+          content: " ";
+          display: inline-block;
+          position: relative;
+          top: -2px;
+          background-image: url('/images/jobs-plus-sprite.png');
+          overflow: hidden;
+          background-position: 91px 0px;
+          width: 27px;
+          height: 27px;
+          position: absolute;
+          right: 0.15em;
+        }
+      }
+      
+      .description {
+        transition: max-height .4s ease-in-out, margin-bottom .4s ease-in-out;
+        max-height:7em;
+        overflow: hidden;
+        margin-bottom: -2em;
+
+        p {
+          margin-top: 0;
+        }
+      }
+
+      .date {
+        display: none;
+      }
+
+      button.apply {
+        margin-top:1em;
+        width: 100%;
+      }
+
+      &.expanded {
+        .title:after {
+          background-position: 0px 0px;
+        }
+
+        .description {
+          max-height:999px;
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  @media all and (min-width: @media-desktop) {
+    padding-left: 0;
+    padding-right: 0;
+    @job-offer-width-desktop: 90%;
+
+    .job-offers {
+      .clearfix();
+      margin-left: 10%;
+      padding-bottom: 6em;
+      padding-left: 1.5em;
+
+      .job-offer {
+        width: @job-offer-width-desktop;
+        margin-top: 3em;
+        margin-bottom: 0;
+        left: 0;
+
+        &:before {
+          top: 0.9em;
+          left: -1.45em;
+        }
+
+        button.apply {
+          margin-top:1em;
+          width: 33%;
+        }
+
+        .date {
+          color: @blue-light;
+          display: block;
+          position: absolute;
+          top: 10px;
+          left: -12.5%;
+          text-align: right;
+        }
+      }
+    }
+  }
+}

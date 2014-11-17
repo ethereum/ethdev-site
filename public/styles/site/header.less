@@ -1,0 +1,202 @@
+header.fixed-header {
+  nav {
+    background-color: #323232;
+    width:100%;
+    height: 100%;
+
+    .navgroup-container {
+      position: relative;
+      top: 0;
+      left: 12%;
+      width: 75%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
+
+      .scroller {
+        min-height: 620px;
+        position: relative;
+      }
+
+      /*transform: translateY(-100%);*/
+      /*transition: transform .4s ease-in-out;*/
+    }
+
+    .navgroup {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      width: 100%;
+      border-top: 1px solid #404040;
+
+      li a {
+        display: block;
+        position: relative;
+        border-bottom: 1px solid #404040;
+        padding: 1em;
+        padding-left: 3em;
+        vertical-align: middle;
+        color: white;
+        text-transform: uppercase;
+
+        &:before {
+          position: relative;
+          content: " ";
+          display: inline-block;
+          background-image:url('/images/header-icons-sprite.png');
+          background-position-x:0;
+          background-repeat: no-repeat;
+          width: 16px;
+          height: 24px;
+          margin-left: -24px;
+          margin-right: 10px;
+          vertical-align: middle;
+        }
+
+        &.home:before { background-position-y:1px; }
+        &.mission-statement:before { background-position-y:-48px; }
+        &.media:before { background-position-y:-98px; }
+        &.team:before { background-position-y:-147px; }
+        &.job-offers:before { background-position-y:-196px; }
+        &.contact:before { background-position-y:-243px; }
+
+        &.active {
+          color: @blue-light;
+          background-color: #252525;
+          
+          &:before {
+            background-position-x:right;
+          }
+        }
+      }
+    }
+
+    .navbar-left {
+      top: 4em;
+    }
+
+    .navbar-logo {
+      display: block;
+      width: 91px;
+      height: 32px;
+      background-image: url('/images/header-logo-mobile.png');
+      background-repeat: no-repeat;
+      margin-top: 32px;
+      margin-left: 20px;
+    }
+
+    .navbar-right {
+      bottom: 0;
+    }
+  }
+
+  .header-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2pt;
+    transition: height .4s ease-in-out;
+  }
+
+  .navbar-toggle {
+    .ir();
+    padding: 0;
+    background-color: transparent;
+    background-image: url('/images/header-menutoggle.png');
+    background-repeat: no-repeat;
+    border: 0;
+    width: 29pt;
+    height: 31pt;
+    position: fixed;
+    right: 20pt;
+    top: 12pt;
+    transition: top .4s ease-in-out, margin-right .4s ease-in-out;
+    z-index: 500;
+
+    .show-navigation & {
+      margin-right: 75%;
+    }
+  }
+
+  @media all and (min-width: @media-desktop) {
+    nav {
+      height: @font-line-height-base * 2.5;
+      background-color: rgba(50, 50, 50, 0.85);
+      text-align: center;
+
+      > .container {
+        height: 100%;
+      }
+
+      .navgroup-container {
+        transform: translateY(0%);
+        display: inline-block;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin-top: 0.4em;
+        margin-left: 0px;
+        width: 768pt;
+        overflow: hidden;
+      }
+
+      .navgroup {
+        width: auto;
+        float: right;
+        position: relative;
+        border-top: 0;
+        top: 0;
+
+        &, > li, > li a {
+          position: relative;
+          display: inline-block;
+        }
+
+        > li {
+          padding-right: 1em;
+          float: left;
+
+          a {
+            vertical-align: middle;
+            line-height: @page-header-height;
+            height: 100%;
+            padding: 0;
+            border-bottom: 0;
+
+            &:before {
+              content: none;
+            }
+
+            &.active {
+              background-color: transparent;
+            }
+          }
+        }
+      }
+
+      .navbar-left {
+        /*margin-right: 10px;*/
+      }
+
+      .navbar-logo {
+        /*content: none;*/
+        position: absolute;
+        left: 18px;
+        top: 7px;
+        background-position: 0px 0;
+        margin-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    .navbar-toggle {
+      top: -100%;
+    }
+
+    .header-background {
+      height: 100%;
+    }
+  }
+}

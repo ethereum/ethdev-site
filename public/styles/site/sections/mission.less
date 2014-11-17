@@ -1,0 +1,102 @@
+#mission {
+  h2 { 
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3em;
+    font-size: 22pt;
+  }
+
+
+  .mission-steps .step {
+    margin-bottom: 14%;
+  }
+
+  .mission-steps {
+    width: 100%;
+    padding: 0;
+    text-align: center;
+    counter-reset: mission-bullets;
+    
+    .step {
+      list-style: none;
+      margin-top: 0;
+      counter-increment: mission-bullets;
+      width: 100%;
+      display: block;
+      text-align: center;
+      padding: 0 @mobile-padding;
+      position: relative;
+
+      img {
+        max-width:100%;
+      }
+
+      h3 {
+        margin-top: 0;
+        margin-bottom: 47px;
+        text-transform: uppercase;
+
+        &:before {
+          content: counter(mission-bullets) ". ";
+          padding-right: .25em;
+          display: inline-block;
+        }
+      }
+      
+      .video-container {
+        width: 220px;
+        height: 220px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        &:after {
+          height: 100%;
+          width: 100%;
+          content: " ";
+          position: absolute;
+          background-image: url('/images/mission-overlay.png');
+          background-size: 100% 100%;
+          top: 0;
+          left: 0;
+        }
+
+        video {
+          width: 221px;
+          height: 221px;
+        }
+
+      }
+
+      .info {
+        margin-top: 47px;
+      }
+    }
+  }
+
+  @media all and (min-width: @media-desktop) {
+    border-bottom: 0;
+
+    .mission-steps .step {
+      margin-bottom: 0;
+    }
+
+    .mission-steps {
+      margin-bottom: -2em;
+      .step {
+        display: inline-block;
+        vertical-align: top;
+        width: 99% / 3;
+        padding-left:12.5pt;
+        padding-right:12.5pt;
+      }
+    }
+
+    .section-footer {
+      bottom: 0;
+      background: white;
+      margin-top: 39px * 3;
+    }
+  }
+}
