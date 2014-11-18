@@ -1,0 +1,14 @@
+{
+  "apps": [{
+    "name": "ethdev",
+    "script": "keystone.js",
+    "log_date_format": "YYYY-MM-DD HH:mm Z",
+    "watch": false,
+    "cwd": "/insert/path/here",
+    "env": {
+      "CLOUDINARY_URL": "cloudinary://136642614346256:zYril7CS_M4YmSI1KL7JpvZOgC8@dumjmldg7",
+      "MONGO_URI": "mongodb://ethdev:wuf$uQuquTr=R6@ds035750.mongolab.com:35750/edev",
+      "NODE_ENV": "production"
+    }
+  }]
+}
