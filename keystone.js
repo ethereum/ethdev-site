@@ -1,6 +1,9 @@
+var _ = require("underscore");
+
 // Simulate config options from your production environment by
 // customising the .env file in your project's root folder.
 require('dotenv').load();
+
 
 global.APP_ROOT = __dirname;
 
@@ -18,7 +21,7 @@ keystone.init({
 	'name': 'EthereumDev',
 	'brand': 'EthereumDev',
 
-	//'less': 'public',
+	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
