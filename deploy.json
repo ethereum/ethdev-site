@@ -1,0 +1,12 @@
+{
+  "deploy":{
+    "production": {
+      "user": "ubuntu",
+      "host": "54.148.150.197",
+      "ref": "origin/master",
+      "repo": "git@github.com:ethereum/ethdev-site.git",
+      "path": "~/ethdev",
+      "post-deploy": "npm install && pm2 startOrRestart ~/ethdev.json"
+    }
+  }
+}
