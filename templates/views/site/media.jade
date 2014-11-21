@@ -19,7 +19,7 @@ section#media
 
         each mediaItem in mediaSectionGalleryLinks
           a(class='media-item link', 
-              href=mediaItem.url, target="_blank",
+              href=mediaItem.secure_url, target="_blank",
               data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"))
             - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(400, 400) : ''
             img.background(src=imageUrl)
