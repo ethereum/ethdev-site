@@ -18,7 +18,7 @@ mixin team_profile(profile, index)
     .photo
       //-- var photoUrl = profile.photo.path + "/" + profile.photo.filename;
       //-- photoUrl = photoUrl.replace('public/', '')
-      img(src=profile.photo.url)
+      img(src=profile.photo.secure_url)
     h3.name 
       .firstname #{profile.firstname} 
       .lastname #{profile.lastname}
