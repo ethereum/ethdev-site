@@ -1376,7 +1376,7 @@ header.fixed-header .navbar-toggle {
   background-position: 0px 0px;
 }
 #homepage #jobs .job-offers .job-offer.expanded .description {
-  max-height: 999px;
+  max-height: 9999px;
   margin-bottom: 0;
 }
 @media all and (min-width: 768pt) {
