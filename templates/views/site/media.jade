@@ -9,7 +9,7 @@ section#media
               href="https://www.youtube.com/watch?v=#{mediaItem.videoId}",
               data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"),
               target="_blank")
-            - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(800, 800) : ''
+            - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(800, 800, {secure:true}) : ''
             img.background(src=imageUrl)
             .info
               h3.title= mediaItem.title
@@ -21,7 +21,7 @@ section#media
           a(class='media-item link', 
               href=mediaItem.secure_url, target="_blank",
               data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"))
-            - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(400, 400) : ''
+            - var imageUrl = mediaItem.heroImage ? mediaItem._.heroImage.thumbnail(400, 400, {secure:true}) : ''
             img.background(src=imageUrl)
             .info
               h3.title= mediaItem.title
@@ -32,7 +32,7 @@ section#media
           if mediaItem.file
             div(class='media-item file', 
               data-date=mediaItem._.publishedDate.format("YYYY-DD-MM HH:MM:SS"))
-              - var iconUrl = mediaItem.icon ? mediaItem._.icon.thumbnail(200, 200) : '';
+              - var iconUrl = mediaItem.icon ? mediaItem._.icon.thumbnail(200, 200, {secure:true}) : '';
               img.background(src=iconUrl)
               .info
                 h3.title= mediaItem.title
