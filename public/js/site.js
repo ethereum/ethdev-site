@@ -269,7 +269,7 @@ onClick_medianav = function(ev) {
     newPosition = $mediawall.prop('scrollLeft') + offset;
   }
 
-  newPosition = Math.max(0, Math.min(mediawallWidth, newPosition));
+  newPosition = Math.max(0, Math.min($mediawall.prop('scrollWidth'), newPosition));
 
   $mediawall.clearQueue()
     .animate({

@@ -29,3 +29,5 @@ node_modules
 public/files/
 
 ethdev.json
+
+public/styles/*.min.css
