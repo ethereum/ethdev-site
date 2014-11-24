@@ -4,6 +4,20 @@
     text-align: center;
     line-height: 1.3em;
     font-size: 22pt;
+	cursor: pointer;  
+	  
+	&:after {
+	  content: " ";
+	  top: 30px;
+	  margin-left: 20px;
+	  display: inline-block;
+	  background-image: url('/images/jobs-plus-sprite.png');
+	  overflow: hidden;
+	  background-position: 91px 0px;
+	  width: 27px;
+	  height: 27px;
+	  position: absolute;
+	}
   }
 
   .collapsible-statement {
@@ -16,7 +30,7 @@
 
 	&.expanded {
 	  .lead {  
-	    max-height: 999px;
+	    max-height: 2000px; //Ideally we would set this to 'none', but numeric value is required for transition
 		margin-bottom: 0;
 	  }
 	}
