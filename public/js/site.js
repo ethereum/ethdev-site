@@ -282,12 +282,19 @@ onClick_jobOffer = function(ev) {
       $parent = $target,
       scrollOffset = 0,
       iterOffsetParent = $parent.get(0);
+	
+  var isExpanded = $parent.hasClass('expanded');
 
-  $parent
-    .addClass('expanded')
-    .siblings()
-    .removeClass('expanded');
-
+  if (isExpanded) {
+	  $parent.removeClass('expanded');
+  } 
+  else {
+	$parent
+		.addClass('expanded')
+		.siblings()
+		.removeClass('expanded');	  
+  }
+	
   setTimeout(function() {
     scrollOffset = scrollPosition(iterOffsetParent);
 
