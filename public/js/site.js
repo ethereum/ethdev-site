@@ -4,6 +4,7 @@
 var mediaQueryDesktop = 'screen and (min-width: 768pt)',
     debounce,
     onClick_jobOffer,
+	onClick_toggleMissionStatement,
     onSubmit_contactForm,
     onClick_sectionTab,
     onClick_profile,
@@ -57,6 +58,9 @@ $(function() {
 
   $('#jobs').on('click', '.job-offer button.apply', onClick_jobOfferApply);
   $('#jobs').on('click', '.job-offer', onClick_jobOffer);
+	
+  $('#mission').on('click', '.statementTitle', onClick_toggleMissionStatement);	
+	
   $('#contact').on('submit', 'form', onSubmit_contactForm);
   $('body').on('click', '.section-footer .tab', onClick_sectionTab);
   $('#team').on('click', '.profile', onClick_profile);
@@ -279,14 +283,14 @@ onClick_medianav = function(ev) {
 
 onClick_jobOffer = function(ev) {
   var $target = $(ev.currentTarget),
-      $parent = $target,
-      scrollOffset = 0,
-      iterOffsetParent = $parent.get(0);
+	$parent = $target,
+	scrollOffset = 0,
+	iterOffsetParent = $parent.get(0);
 	
   var isExpanded = $parent.hasClass('expanded');
 
   if (isExpanded) {
-	  $parent.removeClass('expanded');
+	$parent.removeClass('expanded');
   } 
   else {
 	$parent
@@ -328,6 +332,11 @@ onClick_jobOfferApply = function(ev) {
       //scrollTop: $('#contact').get(0).offsetTop
     //})
 };
+
+onClick_toggleMissionStatement = function(ev) {
+	var $missionStatementContents = $('.collapsible-statement');
+	$missionStatementContents.addClass('expanded');
+};	
 
 onClick_sectionTab = function(ev) {
   $('.page-content')

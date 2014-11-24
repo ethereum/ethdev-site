@@ -6,6 +6,21 @@
     font-size: 22pt;
   }
 
+  .collapsible-statement {
+	  .lead {
+		  transition: max-height .4s ease-in-out, margin-bottom .4s ease-in-out;
+		  max-height: 7em;
+		  overflow: hidden;
+		  margin-bottom: -2em;
+	  }
+
+	  &.expanded {
+		  .lead {
+			  max-height: 999px;
+			  margin-bottom: 0;
+		  }
+	  }	  
+  }	
 
   .mission-steps .step {
     margin-bottom: 14%;
