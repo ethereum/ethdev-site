@@ -335,7 +335,14 @@ onClick_jobOfferApply = function(ev) {
 
 onClick_toggleMissionStatement = function(ev) {
 	var $missionStatementContents = $('.collapsible-statement');
-	$missionStatementContents.addClass('expanded');
+	var isOpen = $missionStatementContents.hasClass('expanded');
+	
+	if (isOpen) {
+		$missionStatementContents.removeClass('expanded');
+	}
+	else {
+		$missionStatementContents.addClass('expanded');
+	}
 };	
 
 onClick_sectionTab = function(ev) {
