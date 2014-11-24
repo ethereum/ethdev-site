@@ -342,6 +342,9 @@ onClick_toggleMissionStatement = function(ev) {
 	}
 	else {
 		$missionStatementContents.addClass('expanded');
+		var scrollOffset = scrollPosition($('#mission')) - 24;
+		$('.page-content').clearQueue()
+				.animate({scrollTop: scrollOffset});		
 	}
 };	
 
