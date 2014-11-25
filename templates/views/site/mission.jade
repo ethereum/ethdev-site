@@ -3,7 +3,9 @@ section#mission
     h2.statementTitle!= missionSectionMain[0].title
     .collapsible-statement
       .lead!= missionSectionMain[0].description.html
-    br		  
+    br
+    .toggle-wrapper
+      .toggle-container
 
     +mission_objectives(missionSectionObjectives)
 

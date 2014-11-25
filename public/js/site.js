@@ -61,9 +61,7 @@ $(function() {
 
   $('#jobs').on('click', '.job-offer button.apply', onClick_jobOfferApply);
   $('#jobs').on('click', '.job-offer', onClick_jobOffer);
-	
-  $('#mission').on('click', '.statementTitle', onClick_toggleMissionStatement);	
-	
+  $('#mission').on('click', '.toggle-container', onClick_toggleMissionStatement);
   $('#contact').on('submit', 'form', onSubmit_contactForm);
   $('body').on('click', '.section-footer .tab', onClick_sectionTab);
   $('#team').on('click', '.profile', onClick_profile);
@@ -347,9 +345,10 @@ onClick_toggleMissionStatement = function(ev) {
 	}
 	else {
 		$missionStatementContents.addClass('expanded');
-		var scrollOffset = scrollPosition($('#mission'));
-		$('.page-content').clearQueue().animate({scrollTop: scrollOffset});		
 	}
+
+	var scrollOffset = scrollPosition($('#mission'));
+	$('.page-content').clearQueue().animate({scrollTop: scrollOffset});
 };	
 
 onClick_sectionTab = function(ev) {

@@ -7,26 +7,12 @@
 	  text-align: center;
 	  line-height: 1.3em;
 	  font-size: 22pt;
-	  cursor: pointer;
-	
-	  &:after {
-	    content: " ";
-	    top: 30px;
-	    margin-left: 20px;
-	    display: inline-block;
-	    background-image: url('/images/team-plus-sprite.png');
-	    overflow: hidden;
-	    background-position: 0px 0;
-	    width: 27px;
-	    height: 27px;
-	    position: absolute;
-	  }
 	}	  
 	
 	.collapsible-statement {
 	  .lead {
 	    transition: max-height .4s ease-in-out, margin-bottom .4s ease-in-out;
-	    max-height: 10em;
+	    max-height: 8em;
 	    overflow: hidden;
 	    margin-bottom: -2em;
 	  }
@@ -41,21 +27,36 @@
 	    background-image: linear-gradient(0deg, @gray-lighter 0%, fade(@gray-lighter, 0%));
 	  }
 	}
-	
-	&.expanded {
-		
-	  h2:after {
-	    background-position: 327px 0;
-	  }
-		
-	  .collapsible-statement {
-	    .lead {
-	      max-height: 2000px; //Ideally we would set this to 'none', but numeric value is required for transition
-	      margin-bottom: 0;
-	    }
-	  }
-	}
 
+    .toggle-wrapper{ 
+      text-align: center;
+    }
+	  
+    .toggle-container {
+      text-align: center;
+      display: inline-block;
+      background-image: url('/images/team-plus-sprite.png');
+      overflow: hidden;
+      background-position: 0px 0;
+      width: 27px;
+      height: 27px;
+      margin: 0 auto 20px auto;
+	  cursor: pointer;
+    }
+
+    &.expanded {
+		
+      .toggle-container {
+        background-position: 327px 0;
+      }
+		
+      .collapsible-statement {
+        .lead {
+          max-height: 2000px; //Ideally we would set this to 'none', but numeric value is required for transition
+          margin-bottom: 0;
+        }
+      }
+    }
   }		
 
   .mission-steps .step {
