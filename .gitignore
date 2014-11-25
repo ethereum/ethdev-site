@@ -30,4 +30,9 @@ public/files/
 
 ethdev.json
 
+
 public/styles/*.min.css
+
+#Ignore Jetbrains project config
+.idea/
+

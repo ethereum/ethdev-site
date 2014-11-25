@@ -1,7 +1,11 @@
 section#mission
-  .container
-    h2!= missionSectionMain[0].title
-    .lead!= missionSectionMain[0].description.html
+  .container.mission-statement
+    h2.statementTitle!= missionSectionMain[0].title
+    .collapsible-statement
+      .lead!= missionSectionMain[0].description.html
+    br
+    .toggle-wrapper
+      .toggle-container
 
     +mission_objectives(missionSectionObjectives)
 
