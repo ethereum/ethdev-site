@@ -262,37 +262,28 @@ onClick_video = function(ev) {
 };
 
 onClick_medianav = function(ev) {
+
+  ev.preventDefault();	
+	
   var $target = $(ev.currentTarget),
       $mediawall = $('#media .mediawall'),
-      mediawallWidth = $mediawall.width(),
-      offset = mediawallWidth * .66,
-      newPosition;
+      mediawallWidth = $mediawall.width();
 
-  var mediaItems = $mediawall.find('.media-item.large');
-  console.log('Num scroll items: ' + mediaItems.length);
+  var numItems = $mediawall.find('.media-item.large').length;
   var positions = [0];
 	
-  for (var i = 1; i < mediaItems.length; i++) {
+  for (var i = 1; i < numItems; i++) {
 	  positions.push(i * mediawallWidth * .67);
-  }	
+  }
 	
-	
-  ev.preventDefault();
-
   if ($target.hasClass('left')) {
-	  mediaPos--;  
-	  mediaPos = mediaPos < 0 ? 0 : mediaPos;
+	  mediaPos--;
   } else {
 	  mediaPos++;
-	  mediaPos = mediaPos > mediaItems.length - 1 ? mediaItems.length - 1 : mediaPos;
   }
-		
-  newPosition = positions[mediaPos];
 
-  $mediawall.clearQueue()
-    .animate({
-      scrollLeft: newPosition
-    }, 300);
+  mediaPos = Math.max(0, Math.min(mediaPos, numItems - 1));
+  $mediawall.clearQueue().animate({scrollLeft: positions[mediaPos]}, 300);
 };
 
 onClick_jobOffer = function(ev) {
