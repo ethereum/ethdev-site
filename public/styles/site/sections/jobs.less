@@ -42,7 +42,8 @@
       background-image: linear-gradient(0deg, @gray-dark 0%, fade(@gray-dark, 0%));
     }
 
-    .job-offer {
+    .job-offer {  
+	  line-height: normal;
       position: relative;
       margin-bottom: 1em;
 
@@ -75,11 +76,11 @@
         text-transform: uppercase;
         padding-right: 1.5em;
         padding-top:11px;
+	    cursor: pointer;
 
         &:after {
           content: " ";
           display: inline-block;
-          position: relative;
           top: -2px;
           background-image: url('/images/jobs-plus-sprite.png');
           overflow: hidden;
@@ -112,12 +113,13 @@
       }
 
       &.expanded {
+		
         .title:after {
-          background-position: 0px 0px;
+          background-position: 0 0;
         }
 
         .description {
-          max-height:999px;
+          max-height: 2000px; //Ideally we would set this to 'none', but numeric value is required for transition
           margin-bottom: 0;
         }
       }

@@ -4,6 +4,7 @@
 var mediaQueryDesktop = 'screen and (min-width: 768pt)',
     debounce,
     onClick_jobOffer,
+	onClick_toggleMissionStatement,
     onSubmit_contactForm,
     onClick_sectionTab,
     onClick_profile,
@@ -17,7 +18,8 @@ var mediaQueryDesktop = 'screen and (min-width: 768pt)',
     onScroll_pageContent,
     $pageContent,
     $video,
-    $mediawall;
+    $mediawall,
+    mediaPos;	
 
 debounce = function(func, wait, immediate) {
   var timeout;
@@ -38,6 +40,8 @@ $(function() {
   var isMediaWallActive = false,
       matchDesktop;
 
+  mediaPos = 0;	
+	
   $pageContent = $('.page-content');
 
   $mediawall = $('#media .mediawall .media-container');
@@ -57,6 +61,7 @@ $(function() {
 
   $('#jobs').on('click', '.job-offer button.apply', onClick_jobOfferApply);
   $('#jobs').on('click', '.job-offer', onClick_jobOffer);
+  $('#mission').on('click', '.toggle-container', onClick_toggleMissionStatement);
   $('#contact').on('submit', 'form', onSubmit_contactForm);
   $('body').on('click', '.section-footer .tab', onClick_sectionTab);
   $('#team').on('click', '.profile', onClick_profile);
@@ -255,39 +260,48 @@ onClick_video = function(ev) {
 };
 
 onClick_medianav = function(ev) {
+
+  ev.preventDefault();	
+	
   var $target = $(ev.currentTarget),
       $mediawall = $('#media .mediawall'),
-      mediawallWidth = $mediawall.width(),
-      offset = mediawallWidth * .66,
-      newPosition;
+      mediawallWidth = $mediawall.width();
 
-  ev.preventDefault();
-
+  var numItems = $mediawall.find('.media-item.large').length;
+  var positions = [0];
+	
+  for (var i = 1; i < numItems; i++) {
+	  positions.push(i * mediawallWidth * .67);
+  }
+	
   if ($target.hasClass('left')) {
-    newPosition = $mediawall.prop('scrollLeft') - offset;
+	  mediaPos--;
   } else {
-    newPosition = $mediawall.prop('scrollLeft') + offset;
+	  mediaPos++;
   }
 
-  newPosition = Math.max(0, Math.min(mediawallWidth, newPosition));
-
-  $mediawall.clearQueue()
-    .animate({
-      scrollLeft: newPosition
-    }, 300);
+  mediaPos = Math.max(0, Math.min(mediaPos, numItems - 1));
+  $mediawall.clearQueue().animate({scrollLeft: positions[mediaPos]}, 300);
 };
 
 onClick_jobOffer = function(ev) {
   var $target = $(ev.currentTarget),
-      $parent = $target,
-      scrollOffset = 0,
-      iterOffsetParent = $parent.get(0);
+	$parent = $target,
+	scrollOffset = 0,
+	iterOffsetParent = $parent.get(0);
+	
+  var isExpanded = $parent.hasClass('expanded');
 
-  $parent
-    .addClass('expanded')
-    .siblings()
-    .removeClass('expanded');
-
+  if (isExpanded) {
+	$parent.removeClass('expanded');
+  } 
+  else {
+	$parent
+		.addClass('expanded')
+		.siblings()
+		.removeClass('expanded');	  
+  }
+	
   setTimeout(function() {
     scrollOffset = scrollPosition(iterOffsetParent);
 
@@ -321,6 +335,21 @@ onClick_jobOfferApply = function(ev) {
       //scrollTop: $('#contact').get(0).offsetTop
     //})
 };
+
+onClick_toggleMissionStatement = function(ev) {
+	var $missionStatementContents = $('.mission-statement');
+	var isOpen = $missionStatementContents.hasClass('expanded');
+	
+	if (isOpen) {
+		$missionStatementContents.removeClass('expanded');
+	}
+	else {
+		$missionStatementContents.addClass('expanded');
+	}
+
+	var scrollOffset = scrollPosition($('#mission'));
+	$('.page-content').clearQueue().animate({scrollTop: scrollOffset});
+};	
 
 onClick_sectionTab = function(ev) {
   $('.page-content')
