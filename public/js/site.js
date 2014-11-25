@@ -18,7 +18,8 @@ var mediaQueryDesktop = 'screen and (min-width: 768pt)',
     onScroll_pageContent,
     $pageContent,
     $video,
-    $mediawall;
+    $mediawall,
+    mediaPos;	
 
 debounce = function(func, wait, immediate) {
   var timeout;
@@ -39,6 +40,8 @@ $(function() {
   var isMediaWallActive = false,
       matchDesktop;
 
+  mediaPos = 0;	
+	
   $pageContent = $('.page-content');
 
   $mediawall = $('#media .mediawall .media-container');
@@ -265,15 +268,26 @@ onClick_medianav = function(ev) {
       offset = mediawallWidth * .66,
       newPosition;
 
+  var mediaItems = $mediawall.find('.media-item.large');
+  console.log('Num scroll items: ' + mediaItems.length);
+  var positions = [0];
+	
+  for (var i = 1; i < mediaItems.length; i++) {
+	  positions.push(i * mediawallWidth * .67);
+  }	
+	
+	
   ev.preventDefault();
 
   if ($target.hasClass('left')) {
-    newPosition = $mediawall.prop('scrollLeft') - offset;
+	  mediaPos--;  
+	  mediaPos = mediaPos < 0 ? 0 : mediaPos;
   } else {
-    newPosition = $mediawall.prop('scrollLeft') + offset;
+	  mediaPos++;
+	  mediaPos = mediaPos > mediaItems.length - 1 ? mediaItems.length - 1 : mediaPos;
   }
-
-  newPosition = Math.max(0, Math.min(mediawallWidth, newPosition));
+		
+  newPosition = positions[mediaPos];
 
   $mediawall.clearQueue()
     .animate({
@@ -343,8 +357,7 @@ onClick_toggleMissionStatement = function(ev) {
 	else {
 		$missionStatementContents.addClass('expanded');
 		var scrollOffset = scrollPosition($('#mission'));
-		$('.page-content').clearQueue()
-				.animate({scrollTop: scrollOffset});		
+		$('.page-content').clearQueue().animate({scrollTop: scrollOffset});		
 	}
 };	
 
