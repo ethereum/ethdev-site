@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1 Tiny//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11-tiny.dtd">
-<svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-	 x="0px" y="0px" width="741.032px" height="251px" viewBox="0 0 741.032 251" xml:space="preserve">
-<g>
-	<rect x="288" fill="#4D4D4D" width="210" height="5"/>
-	<line fill="none" stroke="#4D4D4D" stroke-width="5" stroke-miterlimit="10" x1="479" y1="125.5" x2="306" y2="125.5"/>
-	<g>
+<!-- Generator: Adobe Illustrator 18.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="-221 0 962 251" enable-background="new -221 0 962 251" xml:space="preserve">
+<g display="none">
+	<rect x="288" display="inline" fill="#4D4D4D" width="210" height="5"/>
+	
+		<line display="inline" fill="none" stroke="#4D4D4D" stroke-width="5" stroke-miterlimit="10" x1="479" y1="125.5" x2="306" y2="125.5"/>
+	<g display="inline">
 		<rect x="288" y="246" fill="#4D4D4D" width="210" height="5"/>
 		
-			<rect x="722.134" y="-1.331" transform="matrix(-0.9224 -0.3862 0.3862 -0.9224 1379.4694 347.4436)" fill="#4D4D4D" width="4.999" height="72.982"/>
+			<rect x="722.1" y="-1.3" transform="matrix(0.9224 0.3862 -0.3862 0.9224 69.8017 -277.1344)" fill="#4D4D4D" width="5" height="73"/>
 		
-			<rect x="580.505" y="-8.64" transform="matrix(0.9244 -0.3815 0.3815 0.9244 -3.7841 231.912)" fill="#4D4D4D" width="4.999" height="268.28"/>
+			<rect x="580.5" y="-8.6" transform="matrix(-0.9244 0.3815 -0.3815 -0.9244 1169.8348 19.1071)" fill="#4D4D4D" width="5" height="268.3"/>
 		<polygon fill="#4D4D4D" points="72,246 72,187 67,187 67,251 132,251 132,246 		"/>
-		<path fill="#4D4D4D" d="M72,5h81.019c44.34,0,72.186,21.909,87.736,40.288C259.694,67.67,271,97.834,271,125.975h5
-			c0-29.288-11.749-60.659-31.427-83.917C228.338,22.872,199.276,0,153.019,0H67v122H0v5h72V5z"/>
+		<path fill="#4D4D4D" d="M72,5h81c44.3,0,72.2,21.9,87.7,40.3C259.7,67.7,271,97.8,271,126h5c0-29.3-11.7-60.7-31.4-83.9
+			C228.3,22.9,199.3,0,153,0H67v122H0v5h72V5z"/>
 	</g>
 </g>
+<rect x="533.5" y="121.4" transform="matrix(-0.3812 -0.9245 0.9245 -0.3812 748.934 750.1303)" fill="#4D4D4D" width="183.9" height="6.1"/>
+<polygon fill="#4D4D4D" points="732.7,38.2 713.7,83.5 719.4,85.8 738.4,40.6 "/>
+<path fill="#4D4D4D" d="M-123.3,126.7h-85.5v76.1h97.4v6.3h-103.8V38h103.8v6.3h-97.4v76.1h85.5V126.7z"/>
+<path fill="#4D4D4D" d="M45.5,44.3h-62.1v164.9h-6.3V44.3H-85V38H45.5V44.3z"/>
+<path fill="#4D4D4D" d="M193.5,209.2h-6.3v-82.6l-108.9,0.1v82.5h-6.3V38h6.3v82.4h108.9V38h6.3V209.2z"/>
+<polygon fill="#4D4D4D" points="564,39 421,39 421,45.1 564.3,45.1 564.3,39 "/>
+<polygon fill="#4D4D4D" points="421,202.9 421,203 421,209 421,209.1 564.3,209.1 564.3,202.9 "/>
+<rect x="434" y="120.4" fill="#4D4D4D" width="117.1" height="6.1"/>
+<path fill="#4D4D4D" d="M386.7,67.2C375.6,54.1,355.8,39,324.2,39H265v81.4h-45v6.1h51h0.1V45h53.3c53.8,0,77.6,51,77.6,79h6.1
+	C408.1,104,400.1,83.1,386.7,67.2z"/>
+<polygon fill="#4D4D4D" points="271.1,202.9 271.1,166.1 265,166.1 265,209 265.6,209 265.6,209.1 309.9,209.1 309.9,202.9 "/>
 </svg>
