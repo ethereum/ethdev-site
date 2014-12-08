@@ -10,7 +10,8 @@
     "keystone": "^0.2.30",
     "marked": "^0.3.2",
     "moment": "^2.8.3",
-    "underscore": "~1.7.0"
+    "underscore": "~1.7.0",
+    "newrelic": "^1.14.1"
   },
   "devDependencies": {
     "gulp": "~3.6.2",

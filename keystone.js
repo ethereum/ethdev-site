@@ -1,3 +1,5 @@
+require("newrelic");
+
 var _ = require("underscore");
 
 // Simulate config options from your production environment by
