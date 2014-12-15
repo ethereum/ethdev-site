@@ -29,7 +29,7 @@ node_modules
 public/files/
 
 ethdev.json
-
+deploy.json
 
 public/styles/*.min.css
 
