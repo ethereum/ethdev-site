@@ -29,7 +29,7 @@ Enquiry.add({
 Enquiry.schema.pre('save', function(next) {
   this.wasNew = this.isNew;
   next();
-})
+});
 
 Enquiry.schema.post('save', function() {
   if (this.wasNew) {

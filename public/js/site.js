@@ -321,19 +321,8 @@ onClick_jobOfferApply = function(ev) {
   ev.stopImmediatePropagation();
 
   window.location.href =
-    'mailto:info@ethereum.org?subject=Application for role: ' +
+    'mailto:info@ethdev.org?subject=Application for role: ' +
     $job.find('.title').text();
-
-  //$('#contact form [name="message"]')
-    //.val('Job enquiry: "' + $job.find('.title').text() + '"\n');
-
-  //$('#contact form [name="name.full"]').focus();
-
-  //$('.page-content')
-    //.clearQueue()
-    //.animate({
-      //scrollTop: $('#contact').get(0).offsetTop
-    //})
 };
 
 onClick_toggleMissionStatement = function(ev) {
@@ -359,21 +348,28 @@ onClick_sectionTab = function(ev) {
     });
 };
 
-onSubmit_contactForm = function(ev) {
+onSubmit_contactForm = function(ev) { console.log("click!");
   var data = {};
-
+  
   $(ev.target)
     .serializeArray()
     .forEach(function(x) { data[x.name] = x.value; });
 
   ev.preventDefault();
 
-  $.post('/ajax/contact', data)
-    .promise()
+  var $sendBtn = $('#contact').find("button[type=submit]"),
+      btnText = $sendBtn.text();
+
+  $sendBtn.text("Thank you!").prop("disabled", true);
+
+  $.post('/ajax/contact', data).promise()
     .then(function() {
-      debugger;
+      setTimeout(function(){
+        $sendBtn.text(btnText);
+        $sendBtn.prop("disabled", false);
+      },2000);
     }, function() {
-      debugger;
+      //oops
     });
 };
 
