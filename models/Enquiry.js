@@ -40,14 +40,23 @@ Enquiry.schema.post('save', function() {
 Enquiry.schema.methods.sendNotificationEmail = function(callback) {
   var enq = this;
   
-  var name = enq.name.first + (enq.name.last ? (" " + enq.name.last) : "");
+  var name = enq.name.first + (enq.name.last ? (" " + enq.name.last) : ""),
+      gun = new Mailgun({apiKey: process.env.MAILGUN_KEY, domain: process.env.DOMAIN});
 
   keystone.list('User').model.find().where('receiveEnquiries', true).exec(function(err, recipients) {
-    (new Mailgun({apiKey: process.env.MAILGUN_KEY, domain: process.env.DOMAIN})).messages().send({
+    gun.messages().send({
       from: "webmaster@ethdev.com",
       to: _.pluck(recipients, "email"),
       subject: "New enquiry from " + name + " " + enq.email,
       html: enq.message.md
+    });
+
+    gun.messages().send({
+      from: "info@ethdev.com",
+      to: enq.email,
+      subject: "Thank you for your enquiry",
+      html: "Hi "+name+",<br><br>Thank you for your enquiry. We will get back to you shortly."+
+        "<br><br> EthDev team"
     });
   });
 };
