@@ -50,7 +50,7 @@
     var vid = $video.get(0);
 
     vid.oncanplay = function(ev) {
-      if(!vid.paused) $("#main-logo").hide();
+      if(vid.paused) $("#main-logo").show();
     };
 
     matchDesktop = matchMedia(mediaQueryDesktop);
