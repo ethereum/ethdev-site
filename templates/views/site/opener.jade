@@ -1,9 +1,6 @@
 section#opener
   .video-container
-    video(autoplay, autobuffer, poster="/images/transparent.png")
-      source(src="/videos/header_BG_half.ogv", data-video-hires="/videos/header_BG.ogv", type="video/ogg")
-      source(src="/videos/header_BG_half.mp4", data-video-hires="/videos/header_BG.mp4", type="video/mp4")
-      source(src="/videos/header_BG_half.webm", data-video-hires="/videos/header_BG.webm", type="video/webm")
-  .logo
-    img(src="/images/logo.svg")
+    video(autoplay, muted, loop, autobuffer, poster="/images/transparent.png")
+      source(src="/videos/ETH_DEV_ANIMATION_WEBSITE.mp4", type="video/mp4")
+      source(src="/videos/ETH_DEV_ANIMATION_WEBSITE.webmsd.webm", type="video/webm")
   +section_footer()

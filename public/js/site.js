@@ -46,12 +46,12 @@ $(function() {
 
   $mediawall = $('#media .mediawall .media-container');
 
-  $video = $('#opener video');
-  $video.get(0).oncanplay = function(ev) {
-    onResize_window();
-    $video.css('opacity', 1);
-    ev.currentTarget.play();
-  };
+  // $video = $('#opener video');
+  // $video.get(0).oncanplay = function(ev) {
+  //   onResize_window();
+  //   $video.css('opacity', 1);
+  //   ev.currentTarget.play();
+  // };
 
   matchDesktop = matchMedia(mediaQueryDesktop);
   if (matchDesktop.matches) {
@@ -69,11 +69,11 @@ $(function() {
   $('#media').on('click', '.medianav button', onClick_medianav);
   $('header button[data-toggle]').on('click', onClick_navButton);
   $('header').on('click', '.navgroup li a', onClick_navLink);
-  $('header').on('click', '.navgroup li a', function(ev) {
-    $($(ev.currentTarget).attr('href') + ' video').each(function(i, e) {
-      e.play();
-    });
-  });
+  // $('header').on('click', '.navgroup li a', function(ev) {
+  //   $($(ev.currentTarget).attr('href') + ' video').each(function(i, e) {
+  //     e.play();
+  //   });
+  // });
 
   $mediawall.isotope({
     layoutMode: 'packery',
@@ -163,15 +163,17 @@ onScroll_pageContent = function(ev) {
         .siblings().children('a')
         .removeClass('active');
 
-      $('video', e).each(function(k, v) {
-        v.play();
-      });
+      // $('video', e).each(function(k, v) {
+      //   v.play();
+      // });
       return false;
     }
   });
 };
 
 onMedia_screen = function(ev) {
+  return; //fuck this shit
+  
   $video.children('source').each(function(i, src) {
     var $src = $(src),
         video = $video.get(0);
@@ -202,8 +204,8 @@ onClick_navButton = function(ev) {
 };
 
 onResize_window = function(ev) {
-  var offset = (window.innerWidth - $video.width()) / 2;
-  $video.css('transform', 'translateX(' + offset + 'px)');
+  //var offset = (window.innerWidth - $video.width()) / 2;
+  //$video.css('transform', 'translateX(' + offset + 'px)');
 
   $mediawall.isotope();
 };
@@ -245,19 +247,19 @@ onClick_profile = function(ev) {
   });
 };
 
-onClick_video = function(ev) {
-  if (isDesktop()) {
-    ev.preventDefault();
+// onClick_video = function(ev) {
+//   if (isDesktop()) {
+//     ev.preventDefault();
 
-    $.magnificPopup.close();
-    $.magnificPopup.open({
-      items: {
-        src: $(ev.currentTarget).attr('href')
-      },
-      type: 'iframe'
-    }, 0);
-  }
-};
+//     $.magnificPopup.close();
+//     $.magnificPopup.open({
+//       items: {
+//         src: $(ev.currentTarget).attr('href')
+//       },
+//       type: 'iframe'
+//     }, 0);
+//   }
+// };
 
 onClick_medianav = function(ev) {
 
