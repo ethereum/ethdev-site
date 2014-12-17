@@ -4,7 +4,7 @@
 var mediaQueryDesktop = 'screen and (min-width: 768pt)',
     debounce,
     onClick_jobOffer,
-	onClick_toggleMissionStatement,
+	  onClick_toggleMissionStatement,
     onSubmit_contactForm,
     onClick_sectionTab,
     onClick_profile,
@@ -46,12 +46,10 @@ $(function() {
 
   $mediawall = $('#media .mediawall .media-container');
 
-  // $video = $('#opener video');
-  // $video.get(0).oncanplay = function(ev) {
-  //   onResize_window();
-  //   $video.css('opacity', 1);
-  //   ev.currentTarget.play();
-  // };
+  $video = $('#opener video');
+  $video.get(0).oncanplay = function(ev) {
+    $("#main-logo").hide();
+  };
 
   matchDesktop = matchMedia(mediaQueryDesktop);
   if (matchDesktop.matches) {

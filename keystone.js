@@ -1,4 +1,4 @@
-require("newrelic");
+if(process.env.NEWRELIC_LICENSE_KEY) require("newrelic");
 
 var _ = require("underscore");
 
