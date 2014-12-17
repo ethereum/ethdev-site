@@ -49,10 +49,6 @@
     $video = $('#opener video');
     var vid = $video.get(0);
 
-    vid.oncanplay = function(ev) {
-      if(vid.paused) $("#main-logo").show();
-    };
-
     matchDesktop = matchMedia(mediaQueryDesktop);
     if (matchDesktop.matches) {
       onMedia_screen(null);
