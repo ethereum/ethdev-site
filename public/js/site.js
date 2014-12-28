@@ -8,13 +8,11 @@
       onSubmit_contactForm,
       onClick_sectionTab,
       onClick_profile,
-      onClick_video,
       onClick_jobOfferApply,
       onClick_navButton,
       onClick_navLink,
       onResize_window,
       onClick_medianav,
-      onMedia_screen,
       onScroll_pageContent,
       $pageContent,
       $video,
@@ -47,13 +45,13 @@
     $mediawall = $('#media .mediawall .media-container');
 
     $video = $('#opener video');
-    var vid = $video.get(0);
+
+    $video[0].addEventListener("ended", function(){
+      //$video[0].load();
+      this.src = this.src;
+    },false);
 
     matchDesktop = matchMedia(mediaQueryDesktop);
-    if (matchDesktop.matches) {
-      onMedia_screen(null);
-    }
-    matchDesktop.addListener(onMedia_screen);
 
     $('#jobs').on('click', '.job-offer button.apply', onClick_jobOfferApply);
     $('#jobs').on('click', '.job-offer', onClick_jobOffer);
@@ -61,15 +59,9 @@
     $('#contact').on('submit', 'form', onSubmit_contactForm);
     $('body').on('click', '.section-footer .tab', onClick_sectionTab);
     $('#team').on('click', '.profile', onClick_profile);
-    $('#media').on('click', '.media-item.video', onClick_video);
     $('#media').on('click', '.medianav button', onClick_medianav);
     $('header button[data-toggle]').on('click', onClick_navButton);
     $('header').on('click', '.navgroup li a', onClick_navLink);
-    // $('header').on('click', '.navgroup li a', function(ev) {
-    //   $($(ev.currentTarget).attr('href') + ' video').each(function(i, e) {
-    //     e.play();
-    //   });
-    // });
 
     $mediawall.isotope({
       layoutMode: 'packery',
@@ -159,25 +151,6 @@
           .siblings().children('a')
           .removeClass('active');
 
-        // $('video', e).each(function(k, v) {
-        //   v.play();
-        // });
-        return false;
-      }
-    });
-  };
-
-  onMedia_screen = function(ev) {
-    return; //fuck this shit
-    
-    $video.children('source').each(function(i, src) {
-      var $src = $(src),
-          video = $video.get(0);
-
-      if (video.canPlayType($src.attr('type'))) {
-        video.src = $src.data('video-hires');
-        video.load();
-        video.play();
         return false;
       }
     });
@@ -200,9 +173,6 @@
   };
 
   onResize_window = function(ev) {
-    //var offset = (window.innerWidth - $video.width()) / 2;
-    //$video.css('transform', 'translateX(' + offset + 'px)');
-
     $mediawall.isotope();
   };
 
@@ -242,20 +212,6 @@
         });
     });
   };
-
-  // onClick_video = function(ev) {
-  //   if (isDesktop()) {
-  //     ev.preventDefault();
-
-  //     $.magnificPopup.close();
-  //     $.magnificPopup.open({
-  //       items: {
-  //         src: $(ev.currentTarget).attr('href')
-  //       },
-  //       type: 'iframe'
-  //     }, 0);
-  //   }
-  // };
 
   onClick_medianav = function(ev) {
 
